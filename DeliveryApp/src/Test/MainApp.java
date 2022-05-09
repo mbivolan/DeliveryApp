@@ -14,8 +14,7 @@ import org.eclipse.wb.swt.SWTResourceManager;
 import org.eclipse.swt.widgets.Combo;
 
 public class MainApp {
-
-	protected Shell shell;
+	protected Shell shell, shell2;
 	private final FormToolkit formToolkit = new FormToolkit(Display.getDefault());
 	private Text textExpName;
 	private Text textDesName;
@@ -48,6 +47,10 @@ public class MainApp {
 		createContents();
 		shell.open();
 		shell.layout();
+		
+		shell2.open();
+		shell2.layout();
+		
 		while (!shell.isDisposed()) {
 			if (!display.readAndDispatch()) {
 				display.sleep();
@@ -63,6 +66,11 @@ public class MainApp {
 		shell.setSize(620, 728);
 		shell.setText("SWT Application");
 		shell.setLayout(null);
+		
+		shell2 = new Shell();
+		shell2.setSize(620, 728);
+		shell2.setText("SWT Application");
+		shell2.setLayout(null);
 		
 		Composite composite = formToolkit.createComposite(shell, SWT.NONE);
 		composite.setBackground(SWTResourceManager.getColor(SWT.COLOR_WIDGET_BACKGROUND));
