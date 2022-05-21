@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="src" path="DeliveryApp/src"/>
+	<classpathentry kind="lib" path="DeliveryApp/libs/jackson-annotations-2.13.3.jar"/>
+	<classpathentry kind="lib" path="DeliveryApp/libs/jackson-core-2.13.3.jar"/>
+	<classpathentry kind="lib" path="DeliveryApp/libs/jackson-databind-2.13.3.jar"/>
+	<classpathentry kind="lib" path="DeliveryApp/libs/json-20220320.jar"/>
+	<classpathentry kind="lib" path="DeliveryApp/libs/json-simple-1.1.jar"/>
+	<classpathentry kind="lib" path="DeliveryApp/swing2swt.jar"/>
+	<classpathentry kind="output" path="DeliveryApp/bin"/>
+</classpath>
