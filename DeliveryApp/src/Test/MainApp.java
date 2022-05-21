@@ -1,7 +1,8 @@
 package Test;
 
 import org.eclipse.swt.SWT;
-import org.eclipse.swt.widgets.Display;
+import org.eclipse.swt.widgets.*;
+import org.eclipse.swt.widgets.Event;
 import org.eclipse.swt.widgets.Shell;
 import org.eclipse.swt.widgets.Button;
 import org.eclipse.ui.forms.widgets.FormToolkit;
@@ -9,12 +10,14 @@ import org.eclipse.ui.forms.widgets.Form;
 import swing2swt.layout.BoxLayout;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Label;
+import org.eclipse.swt.widgets.Listener;
+import org.eclipse.swt.widgets.MessageBox;
 import org.eclipse.swt.widgets.Text;
 import org.eclipse.wb.swt.SWTResourceManager;
 import org.eclipse.swt.widgets.Combo;
 
 public class MainApp {
-	protected Shell shell, shell2;
+	protected Shell shell;
 	private final FormToolkit formToolkit = new FormToolkit(Display.getDefault());
 	private Text textExpName;
 	private Text textDesName;
@@ -25,7 +28,10 @@ public class MainApp {
 	private Text textDesPhone;
 	private Text textDesMail;
 	private Text textOthWeight;
-
+	
+	// private InternalState deliveryState;
+	private DataBackend backend;
+	
 	/**
 	 * Launch the application.
 	 * @param args
@@ -38,6 +44,11 @@ public class MainApp {
 			e.printStackTrace();
 		}
 	}
+	
+	public MainApp() {
+		// this.deliveryState = new InternalState();
+		this.backend = new DataBackend();
+	}
 
 	/**
 	 * Open the window.
@@ -48,15 +59,13 @@ public class MainApp {
 		shell.open();
 		shell.layout();
 		
-		shell2.open();
-		shell2.layout();
-		
 		while (!shell.isDisposed()) {
 			if (!display.readAndDispatch()) {
 				display.sleep();
 			}
 		}
 	}
+	
 
 	/**
 	 * Create contents of the window.
@@ -67,20 +76,10 @@ public class MainApp {
 		shell.setText("SWT Application");
 		shell.setLayout(null);
 		
-		shell2 = new Shell();
-		shell2.setSize(620, 728);
-		shell2.setText("SWT Application");
-		shell2.setLayout(null);
-		
 		Composite composite = formToolkit.createComposite(shell, SWT.NONE);
 		composite.setBackground(SWTResourceManager.getColor(SWT.COLOR_WIDGET_BACKGROUND));
 		composite.setBounds(0, 0, 607, 681);
 		formToolkit.paintBordersFor(composite);
-		
-		Button btnDataAdd = new Button(composite, SWT.NONE);
-		btnDataAdd.setBounds(248, 521, 90, 30);
-		formToolkit.adapt(btnDataAdd, true, true);
-		btnDataAdd.setText("Add Data");
 		
 		textExpName = new Text(composite, SWT.BORDER);
 		textExpName.setBounds(159, 72, 153, 26);
@@ -141,6 +140,7 @@ public class MainApp {
 		lblNewLabel_2.setText("Alte detalii");
 		
 		textOthWeight = new Text(composite, SWT.BORDER);
+		textOthWeight.setText("1");
 		textOthWeight.setBounds(272, 351, 153, 26);
 		formToolkit.adapt(textOthWeight, true, true);
 		
@@ -184,6 +184,42 @@ public class MainApp {
 		comboOthType.setBounds(272, 400, 153, 28);
 		formToolkit.adapt(comboOthType);
 		formToolkit.paintBordersFor(comboOthType);
+		
+		Button btnDataAdd = new Button(composite, SWT.NONE);
+		btnDataAdd.setBounds(248, 521, 90, 30);
+		formToolkit.adapt(btnDataAdd, true, true);
+		btnDataAdd.setText("Add Data");
+		btnDataAdd.addListener(SWT.Selection, new Listener() {
+			public void handleEvent(Event event) {
+	        	// Add Customer Here
+	        	Customer dest = new Customer(textDesName.getText(), textDesPhone.getText(), textDesMail.getText());
+	        	Customer exp = new Customer(textExpName.getText(), textExpPhone.getText(), textExpMail.getText());
+	        	
+	        	int awb = backend.addNewItem(
+	        				new Item(
+        							exp,
+        							dest,
+        							textExpCity.getText(),
+        							textDesCity.getText(),
+        							comboOthType.getText(),
+        							Integer.valueOf(textOthWeight.getText())
+	        					)
+	        			);
+	        	
+	        	/*
+	        	deliveryState.addPackage(
+	        				new PackageState(
+	        							exp,
+	        							dest,
+	        							textExpCity.getText(),
+	        							textDesCity.getText(),
+	        							Integer.valueOf(textOthWeight.getText()),
+	        							comboOthType.getText()
+	        						)
+	        			);
+	        	*/
+	        }
+	      });
 
 	}
 }
