@@ -1,36 +1,17 @@
 {
-  "9381" : {
+  "1168" : {
     "dest" : {
-      "name" : "",
+      "name" : "sdf",
       "phone" : "",
       "mail" : ""
     },
     "exp" : {
-      "name" : "",
+      "name" : "sdfsdf",
       "phone" : "",
       "mail" : ""
     },
     "roadPath" : {
       "nodes" : [ "", "" ],
-      "remainingTime" : 60
-    },
-    "packType" : "",
-    "packWeight" : 1,
-    "status" : null
-  },
-  "3495" : {
-    "dest" : {
-      "name" : "Eu",
-      "phone" : "012",
-      "mail" : "asd"
-    },
-    "exp" : {
-      "name" : "Tu",
-      "phone" : "013",
-      "mail" : "dec"
-    },
-    "roadPath" : {
-      "nodes" : [ "Timisoara", "Bucuresti" ],
       "remainingTime" : 60
     },
     "packType" : "",
