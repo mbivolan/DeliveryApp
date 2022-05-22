@@ -59,7 +59,7 @@ public class DeliveryApp extends JFrame {
 		contentPane.add(btnCurier);
 		btnCurier.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				//new GhiseuFrame(backend).setVisible(true);
+				new GhiseuFrame(backend).setVisible(true);
 				dispose();
 			}
 		});

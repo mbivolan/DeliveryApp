@@ -11,7 +11,7 @@ public class Item {
 
 	public Item() {}
 
-	public Item(Customer dest, Customer exp, String expLoc, String destLoc, String packType, int packWeight) {
+	public Item(Customer exp, Customer dest, String expLoc, String destLoc, String packType, int packWeight) {
 		this.dest = dest;
 		this.exp = exp;
 		
@@ -19,6 +19,7 @@ public class Item {
 		
 		this.packType = packType;
 		this.packWeight = packWeight;
+		this.status = "ToBeConfirmed";
 	}
 	
 	public String getStatus() {

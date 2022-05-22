@@ -1,21 +1,21 @@
 {
-  "1168" : {
+  "9274" : {
     "dest" : {
-      "name" : "sdf",
+      "name" : "nume2",
       "phone" : "",
       "mail" : ""
     },
     "exp" : {
-      "name" : "sdfsdf",
+      "name" : "nume1",
       "phone" : "",
       "mail" : ""
     },
     "roadPath" : {
-      "nodes" : [ "", "" ],
+      "nodes" : [ "asd1", "asd2" ],
       "remainingTime" : 60
     },
-    "packType" : "fragil",
-    "packWeight" : 1,
-    "status" : null
+    "packType" : "Normal",
+    "packWeight" : 11,
+    "status" : "ToBeDelivered"
   }
 }
