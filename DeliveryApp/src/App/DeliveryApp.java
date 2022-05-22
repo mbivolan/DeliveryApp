@@ -13,6 +13,7 @@ import java.awt.event.ActionEvent;
 public class DeliveryApp extends JFrame {
 
 	private JPanel contentPane;
+	private DataBackend backend;
 
 	/**
 	 * Launch the application.
@@ -34,6 +35,8 @@ public class DeliveryApp extends JFrame {
 	 * Create the frame.
 	 */
 	public DeliveryApp() {
+		backend = new DataBackend();
+		
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 570, 461);
 		contentPane = new JPanel();
@@ -54,6 +57,12 @@ public class DeliveryApp extends JFrame {
 		JButton btnCurier = new JButton("Ghiseu");
 		btnCurier.setBounds(225, 204, 89, 23);
 		contentPane.add(btnCurier);
+		btnCurier.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				new GhiseuFrame(backend).setVisible(true);
+				dispose();
+			}
+		});
 		
 		JButton btnAWB = new JButton("AWB");
 		btnAWB.setBounds(355, 204, 89, 23);
