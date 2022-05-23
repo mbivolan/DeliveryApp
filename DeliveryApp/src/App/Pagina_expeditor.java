@@ -80,6 +80,7 @@ public class Pagina_expeditor extends JFrame {
 		contentPane.setLayout(null);
 		
 		JButton btnPlataDest = new JButton("Plateste");
+		
 		btnPlataDest.setBounds(21, 23, 143, 23);
 		contentPane.add(btnPlataDest);
 		
@@ -94,6 +95,7 @@ public class Pagina_expeditor extends JFrame {
 		textField.setVisible(false);
 		
 		JButton btnSprePlata = new JButton("Spre plata");
+		btnSprePlata.setVisible(false);
 		
 		btnSprePlata.setBounds(441, 23, 119, 23);
 		contentPane.add(btnSprePlata);
@@ -101,6 +103,7 @@ public class Pagina_expeditor extends JFrame {
 		JLabel lblPlataDest = new JLabel("Numar de zile:");
 		lblPlataDest.setBounds(201, 27, 85, 14);
 		contentPane.add(lblPlataDest);
+		lblPlataDest.setVisible(false);
 		
 		btnSprePlata.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -111,10 +114,11 @@ public class Pagina_expeditor extends JFrame {
 				try {
 					z=textField.getText();
 					zile=Integer.parseInt(z);
-					new Pagina_plata().setVisible(true);
-					Pagina_plata.txtCash2.setText(textField.getText());
 					dest.numar_secunde=zile;
 					plat.numar_zile=zile;
+					plat.calcul(20,2);
+					new Pagina_plata().setVisible(true);
+					//Pagina_plata.txtCash2.setText(textField.getText());
 					dispose();
 				}
 				catch(NumberFormatException p)
@@ -125,6 +129,14 @@ public class Pagina_expeditor extends JFrame {
 				//lblCash2.setText(textField.getText());
 				
 				
+			}
+		});
+		
+		btnPlataDest.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				textField.setVisible(true);
+				lblPlataDest.setVisible(true);
+				btnSprePlata.setVisible(true);
 			}
 		});
 	}

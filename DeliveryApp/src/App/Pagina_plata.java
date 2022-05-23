@@ -132,6 +132,8 @@ public class Pagina_plata extends JFrame {
 	int ok;
 	public static JTextField txtCash2;
 	public int numar_zile;
+	private String pretul_total;
+	private float pr;
 	
 	/**
 	 * Launch the application.
@@ -256,6 +258,11 @@ public class Pagina_plata extends JFrame {
 		lblNewLabel.setBounds(348, 26, 46, 14);
 		contentPane.add(lblNewLabel);
 		txtCVV.setVisible(false);
+		
+		//pr=calcul(20,2);
+		JOptionPane.showMessageDialog(null, numar_zile);
+		pretul_total=String.valueOf(calcul(20,2));
+		txtCash2.setText(pretul_total);
 
 		btnCash.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {

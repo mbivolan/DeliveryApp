@@ -111,6 +111,7 @@ public class CourierFrame extends JFrame {
 				//String awb=obj.getJSONObject(cod_awb).getString("packType");
 				//JOptionPane.showMessageDialog(null, awb);
 				Item item=databackend.getItem(awb);
+				System.out.println(item.getExp().getName());
 				btnDestinatar.setVisible(true);
 				btnExpeditor.setVisible(true);
 				
