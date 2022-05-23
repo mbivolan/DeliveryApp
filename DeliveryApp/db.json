@@ -14,7 +14,7 @@
       "nodes" : [ "", "" ],
       "remainingTime" : 60
     },
-    "packType" : "",
+    "packType" : "fragil",
     "packWeight" : 1,
     "status" : null
   }

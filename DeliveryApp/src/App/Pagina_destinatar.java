@@ -28,6 +28,8 @@ public class Pagina_destinatar extends JFrame {
 	public boolean adevar;
 	private long time;
 	public int numar_secunde;
+	public String nume_expeditor;
+	private DataBackend databackend;
 	
 
 	/**
@@ -37,7 +39,7 @@ public class Pagina_destinatar extends JFrame {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					Pagina_destinatar frame = new Pagina_destinatar();
+					Pagina_destinatar frame = new Pagina_destinatar(new DataBackend());
 					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -64,7 +66,7 @@ public class Pagina_destinatar extends JFrame {
         	//System.out.println(numar_secunde);
             while (true) {
                 if (System.currentTimeMillis() - time > (numar_secunde*1000)) {
-                	new CourierFrame().setVisible(true);
+                	new CourierFrame(new DataBackend()).setVisible(true);
                     dispose();
                     break;
                 }
@@ -81,7 +83,9 @@ public class Pagina_destinatar extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public Pagina_destinatar() {
+	public Pagina_destinatar(DataBackend backend) {
+		
+		this.databackend=backend;
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 608, 489);
 		contentPane = new JPanel();

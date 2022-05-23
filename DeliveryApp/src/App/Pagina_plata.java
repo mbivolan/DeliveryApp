@@ -131,6 +131,7 @@ public class Pagina_plata extends JFrame {
 	private boolean plata_card=false;
 	int ok;
 	public static JTextField txtCash2;
+	public int numar_zile;
 	
 	/**
 	 * Launch the application.
@@ -146,6 +147,19 @@ public class Pagina_plata extends JFrame {
 				}
 			}
 		});
+	}
+	
+	public float calcul(int greutate, int categorie)
+	{
+		float suma=1;
+		float cat1=0.1f,cat2=02.f,cat3=0.3f;
+		if(categorie==1)
+			suma=suma*numar_zile*greutate*cat1;
+		if(categorie==2)
+			suma=suma*numar_zile*greutate*cat2;
+		if(categorie==3)
+			suma=suma*numar_zile*greutate*cat3;
+		return suma;
 	}
 
 	/**
