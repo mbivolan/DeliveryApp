@@ -104,16 +104,19 @@ public class CourierFrame extends JFrame {
 		btnCautare.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				
-				//String jsonString="db.json";
 				String cod_awb=txtCurier.getText();
 				int awb=Integer.parseInt(cod_awb);
-				//JSONObject obj= new JSONObject(jsonString);
-				//String awb=obj.getJSONObject(cod_awb).getString("packType");
-				//JOptionPane.showMessageDialog(null, awb);
-				Item item=databackend.getItem(awb);
-				System.out.println(item.getExp().getName());
-				btnDestinatar.setVisible(true);
-				btnExpeditor.setVisible(true);
+				Item item;
+				try {
+				item=databackend.getItem(awb);}
+				catch(NullPointerException nul)
+				{
+					JOptionPane.showMessageDialog(null, "AWB-ul nu a fost gasit");
+					btnDestinatar.setVisible(true);
+					btnExpeditor.setVisible(true);
+				}
+				//System.out.println(item.getExp().getName());
+				
 				
 			}
 		});
@@ -121,7 +124,7 @@ public class CourierFrame extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 				Pagina_destinatar d = new Pagina_destinatar(new DataBackend());
 				new Pagina_destinatar(new DataBackend()).setVisible(true);
-				d.numar_secunde=10;
+				d.numar_secunde=3;
 				d.timp();
 				Pagina_destinatar.textField_1.setText(txtCurier.getText());
 			}

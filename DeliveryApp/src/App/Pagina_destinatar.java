@@ -1,6 +1,7 @@
 package App;
 
 import java.awt.AWTEvent;
+
 import java.awt.BorderLayout;
 import java.awt.EventQueue;
 import java.awt.Toolkit;
@@ -59,25 +60,26 @@ public class Pagina_destinatar extends JFrame {
     }, eventMask);
 
     time = System.currentTimeMillis();
+   System.out.println(numar_secunde);
     new Thread(new Runnable() {
-
+    	
         @Override
         public void run() {
-        	//System.out.println(numar_secunde);
             while (true) {
                 if (System.currentTimeMillis() - time > (numar_secunde*1000)) {
-                	new CourierFrame(new DataBackend()).setVisible(true);
-                    dispose();
+                	System.out.println("in if"+numar_secunde);
+                	//new CourierFrame(new DataBackend()).setVisible(true);
+                	dispose();
                     break;
                 }
+                //System.out.println(1);
             }
         }
+        
     }).start();
     }
 	
-	public void secunde(int a) {
-		numar_secunde=a;
-	}
+	
 
 
 	/**
@@ -125,14 +127,20 @@ public class Pagina_destinatar extends JFrame {
 				
 				if(rdbtnDa.isSelected())
 				{
-					//schimba statusul coletului in livrat
+					String cod_awb=textField_1.getText();
+					String livrat="livrat";
+					int awb=Integer.parseInt(cod_awb);
+					Item item=databackend.getItem(awb);
+					System.out.println(item.getDest().getName());
+					item.setStatus(livrat);
+					databackend.updateAwb(awb,item);
 					dispose();
+					
 				}
 			}
 		});
 		rdbtnDa.setBounds(34, 209, 109, 23);
 		contentPane.add(rdbtnDa);
-		//timp();
 	}
 
 	

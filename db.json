@@ -1,0 +1,40 @@
+{
+  "7435" : {
+    "dest" : {
+      "name" : "mina",
+      "phone" : "",
+      "mail" : ""
+    },
+    "exp" : {
+      "name" : "samina\t",
+      "phone" : "",
+      "mail" : ""
+    },
+    "roadPath" : {
+      "nodes" : [ "ee", "eee" ],
+      "remainingTime" : 60
+    },
+    "packType" : "Pretios",
+    "packWeight" : 24,
+    "status" : "ToBeDelivered"
+  },
+  "2045" : {
+    "dest" : {
+      "name" : "Turlea Madalina",
+      "phone" : "1254",
+      "mail" : "turlica@iahu.ro"
+    },
+    "exp" : {
+      "name" : "Krautner Bogdan",
+      "phone" : "1245",
+      "mail" : "boby@smeker.ro"
+    },
+    "roadPath" : {
+      "nodes" : [ "Str. Petrosaniului", "Str. Vinerii" ],
+      "remainingTime" : 60
+    },
+    "packType" : "Periculos",
+    "packWeight" : 12,
+    "status" : "livrat"
+  }
+}
