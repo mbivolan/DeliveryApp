@@ -106,7 +106,9 @@ public class CourierFrame extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 				
 				String cod_awb=txtCurier.getText();
+				try {
 				int awb=Integer.parseInt(cod_awb);
+				
 				Item item = null;
 				try {
 					item=databackend.getItem(awb);
@@ -120,6 +122,13 @@ public class CourierFrame extends JFrame {
 					btnExpeditor.setVisible(true);
 					btnUpdate.setVisible(true);
 				}
+				
+				}
+				catch(NumberFormatException exp)
+				{
+					JOptionPane.showMessageDialog(null,"Introduceti un AWB valid");
+				}
+				
 			}
 		});
 		btnDestinatar.addActionListener(new ActionListener() {

@@ -16,6 +16,91 @@ import javax.swing.JTextField;
 import javax.swing.JComboBox;
 import javax.swing.DefaultComboBoxModel;
 
+class Integer_pozitiv extends Exception
+{
+	int a;
+	private static final long serialVersionUID = 1L;
+
+	public Integer_pozitiv(int a)
+	{
+		this.a=a;
+	}
+	
+	public String toString()
+	{
+		return "Greutatea trebuie sa fie pozitiva";
+	}
+		
+}
+
+class Integerpozitiv
+{
+	public static void Verificare(int a) throws Integer_pozitiv
+	{
+		if(a<1)
+			throw new Integer_pozitiv(a);
+	}
+}
+
+class String_email extends Exception
+{
+	String s;
+	private static final long serialVersionUID = 1L;
+
+	public String_email(String s)
+	{
+		this.s=s;
+	}
+	
+	public String toString()
+	{
+		return "Adresa de email nu este valida!";
+	}
+}
+
+class Stringemail
+{
+	static String regex="^(.+)@(.+)$";
+	public static void Verificare(String s) throws String_email
+	{
+		
+		 boolean bool;
+			bool=s.matches(regex);
+			if(bool==false)
+				throw new String_email(s);
+			
+	}
+}
+
+class String_telefon extends Exception
+{
+	String s;
+	private static final long serialVersionUID = 1L;
+
+	public String_telefon(String s)
+	{
+		this.s=s;
+	}
+	
+	public String toString()
+	{
+		return "Numar de telefon invalid!";
+	}
+}
+
+class Stringtelefon
+{
+	static String regex="^(\\+4|)?(07[0-8]{1}[0-9]{1}|02[0-9]{2}|03[0-9]{2}){1}?(\\s|\\.|\\-)?([0-9]{3}(\\s|\\.|\\-|)){2}$";
+	public static void Verificare(String s) throws String_telefon
+	{
+		
+		boolean bool;
+		bool=s.matches(regex);
+		if(bool==false)
+			throw new String_telefon(s);
+	}
+}
+
 class String_gol extends Exception {
 	
 	String s;
@@ -28,7 +113,7 @@ class String_gol extends Exception {
 	
 	public String toString()
 	{
-		return "Introduceti numele!";
+		return "Camp gol!";
 	}
 
 }
@@ -247,9 +332,7 @@ public class Pagina_plata extends JFrame {
 		contentPane.add(lblNewLabel);
 		txtCVV.setVisible(false);
 		
-		//pr=calcul(20,2);
 		JOptionPane.showMessageDialog(null, numar_zile);
-		//pretul_total=String.valueOf(calcul(,20,2));
 		txtCash2.setText(pretul_total);
 
 		btnCash.addActionListener(new ActionListener() {

@@ -73,13 +73,15 @@ public class Pagina_expeditor extends JFrame {
 	public float calcul(int numarzile,int categorie, int greutate)
 	{
 		float suma=1;
-		float cat1=0.1f,cat2=02.f,cat3=0.3f;
+		float cat1=1.1f,cat2=1.2f,cat3=1.3f;
 		if(categorie==1)
 			suma=suma*numarzile*greutate*cat1;
 		if(categorie==2)
 			suma=suma*numarzile*greutate*cat2;
 		if(categorie==3)
 			suma=suma*numarzile*greutate*cat3;
+		if(categorie==4)
+			suma=suma*numarzile*greutate;
 		return suma;
 	}
 	
@@ -92,6 +94,8 @@ public class Pagina_expeditor extends JFrame {
 			categ=2;
 		if(cat.equals("Periculos"))
 			categ=3;
+		if(cat.equals("Normal"))
+			categ=4;
 		
 		return categ;
 			
