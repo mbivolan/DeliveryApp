@@ -106,12 +106,14 @@ public class CourierFrame extends JFrame {
 				
 				String cod_awb=txtCurier.getText();
 				int awb=Integer.parseInt(cod_awb);
-				Item item;
+				Item item = null;
 				try {
-				item=databackend.getItem(awb);}
-				catch(NullPointerException nul)
-				{
+					item=databackend.getItem(awb);
+				} catch (NullPointerException nul) {}
+				
+				if (item == null) {
 					JOptionPane.showMessageDialog(null, "AWB-ul nu a fost gasit");
+				} else {
 					btnDestinatar.setVisible(true);
 					btnExpeditor.setVisible(true);
 				}
