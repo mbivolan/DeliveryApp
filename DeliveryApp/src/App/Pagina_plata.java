@@ -151,18 +151,6 @@ public class Pagina_plata extends JFrame {
 		});
 	}
 	
-	public float calcul(int greutate, int categorie)
-	{
-		float suma=1;
-		float cat1=0.1f,cat2=02.f,cat3=0.3f;
-		if(categorie==1)
-			suma=suma*numar_zile*greutate*cat1;
-		if(categorie==2)
-			suma=suma*numar_zile*greutate*cat2;
-		if(categorie==3)
-			suma=suma*numar_zile*greutate*cat3;
-		return suma;
-	}
 
 	/**
 	 * Create the frame.
@@ -261,7 +249,7 @@ public class Pagina_plata extends JFrame {
 		
 		//pr=calcul(20,2);
 		JOptionPane.showMessageDialog(null, numar_zile);
-		pretul_total=String.valueOf(calcul(20,2));
+		//pretul_total=String.valueOf(calcul(,20,2));
 		txtCash2.setText(pretul_total);
 
 		btnCash.addActionListener(new ActionListener() {
@@ -310,16 +298,17 @@ public class Pagina_plata extends JFrame {
 				
 				String nume,numar,cvv;
 				String expresie_nume="^([A-Z][a-z]*((\\s)))+[A-Z][a-z]*$";
+				int ok1=0,ok2=0,ok3=0;
 				
 				
 				if(plata_card==true)
 				{
-					//nume
 					try {
 						
 						nume=txtNume.getText();
 						Stringgol.Verificare(nume);
 						Stringnume.Verificare(nume);
+						ok1=1;
 					}
 					catch(String_gol f)
 					{
@@ -329,12 +318,12 @@ public class Pagina_plata extends JFrame {
 					{
 						JOptionPane.showMessageDialog(null, g);
 					}
-					//numar
 					try
 					{
 						numar=txtNumar.getText();
 						Stringgol.Verificare(numar);
 						Stringcard.Verificare(numar);
+						ok2=1;
 					}
 					catch(String_gol h)
 					{
@@ -344,13 +333,13 @@ public class Pagina_plata extends JFrame {
 					{
 						JOptionPane.showMessageDialog(null, i);
 					}
-					//CVV
 					try
 					{
 						cvv=txtCVV.getText();
 						Stringgol.Verificare(cvv);
 						ok=Integer.parseInt(cvv);
 						Stringcvv.Verificare(cvv);
+						ok3=1;
 					}
 					catch(String_gol cvv1)
 					{
@@ -364,8 +353,17 @@ public class Pagina_plata extends JFrame {
 					{
 						JOptionPane.showMessageDialog(null, cvv3);
 					}
+					if(ok1==1 && ok2==1 && ok3==1)
+					{
+						JOptionPane.showMessageDialog(null,"Plata realizata cu succes");
+						dispose();
+					}
 					
-					
+				}
+				else
+				{
+					JOptionPane.showMessageDialog(null,"Plata realizata cu succes");
+					dispose();
 				}
 				
 

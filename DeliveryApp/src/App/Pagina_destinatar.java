@@ -24,7 +24,7 @@ public class Pagina_destinatar extends JFrame {
 	 */
 	private static final long serialVersionUID = 1L;
 	private JPanel contentPane;
-	public JTextField textField;
+	public static JTextField textField;
 	public static JTextField textField_1;
 	public boolean adevar;
 	private long time;
