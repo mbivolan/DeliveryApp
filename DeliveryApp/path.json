@@ -1,0 +1,42 @@
+{
+    "Timisoara": [
+        {
+            "Bucuresti" : {
+                "drum": ["Deva", "Sibiu"],
+                "timp": 2
+            }
+        },
+        {
+            "Cluj" : {
+                "drum": ["Deva"],
+                "timp": 1
+            }
+        },
+        {
+            "Constanta" : {
+                "drum": ["Deva", "Sibiu", "Bucuresti"],
+                "timp": 3
+            }
+        }
+    ],
+    "Cluj": [
+        {
+            "Bucuresti" : {
+                "drum": ["Sibiu"],
+                "timp": 1
+            }
+        },
+        {
+            "Constanta" : {
+                "drum": ["Sibiu", "Bucuresti"],
+                "timp": 2
+            }
+        },
+        {
+            "Timisoara" : {
+                "drum": ["Deva"],
+                "timp": 1
+            }
+        }
+    ]
+}
