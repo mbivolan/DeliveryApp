@@ -51,7 +51,7 @@ public class Detalii_colet extends JFrame {
 		contentPane.setLayout(null);
 		
 		JLabel lblTraseu = new JLabel("Traseu ramas");
-		lblTraseu.setBounds(96, 99, 228, 14);
+		lblTraseu.setBounds(96, 99, 527, 14);
 		contentPane.add(lblTraseu);
 		
 		JLabel lblTimp = new JLabel("Timp ramas");

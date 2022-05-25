@@ -132,7 +132,9 @@ public class ConfirmPanel extends JPanel {
 				Item item = backend.getItem(awb);
 				int sum = item.getRoadPath().getRemainingTime() * 20;
 				
-				new Pagina_plata().setVisible(true);
+				Pagina_plata pag = new Pagina_plata();
+				pag.setAwb(awb);
+				pag.setVisible(true);
 				String sir = String.valueOf(sum);
 				Pagina_plata.txtCash2.setText(sir);
 				

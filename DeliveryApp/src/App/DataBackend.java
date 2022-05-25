@@ -16,7 +16,18 @@ public class DataBackend {
 	File storage;
 	ObjectMapper objectMapper;
 	
+	private static DataBackend backend = null;
+	
 	////////////////////////////////////////////////////////////////////////////////////////////////////
+	
+    public static DataBackend getInstance()
+    {
+        if (backend == null)
+        	backend = new DataBackend();
+  
+        return backend;
+    }
+	
 	
 	public DataBackend() {
 		objectMapper = new ObjectMapper();

@@ -219,6 +219,11 @@ public class Pagina_plata extends JFrame {
 	public int numar_zile;
 	private String pretul_total;
 	private float pr;
+	private int awb;
+	
+	public void setAwb(int awb) {
+		this.awb = awb;
+	}
 	
 	
 	
@@ -441,6 +446,11 @@ public class Pagina_plata extends JFrame {
 					if(ok1==1 && ok2==1 && ok3==1)
 					{
 						JOptionPane.showMessageDialog(null,"Plata realizata cu succes");
+						DataBackend backend = new DataBackend().getInstance();
+						Item item = backend.getItem(awb);
+						item.setStatus("In Curs Livrare");
+						backend.updateAwb(awb, item);
+						new DeliveryApp().setVisible(true);
 						dispose();
 					}
 					
@@ -448,7 +458,10 @@ public class Pagina_plata extends JFrame {
 				else
 				{
 					JOptionPane.showMessageDialog(null,"Plata realizata cu succes");
-					
+					DataBackend backend = new DataBackend().getInstance();
+					Item item = backend.getItem(awb);
+					item.setStatus("In Curs Livrare");
+					backend.updateAwb(awb, item);
 					new DeliveryApp().setVisible(true);
 					
 					

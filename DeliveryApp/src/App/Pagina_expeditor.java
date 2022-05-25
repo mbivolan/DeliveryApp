@@ -112,6 +112,7 @@ public class Pagina_expeditor extends JFrame {
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
+		timp();
 		
 		JButton btnPlataDest = new JButton("Plateste");
 		

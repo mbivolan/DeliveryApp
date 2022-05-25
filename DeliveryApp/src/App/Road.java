@@ -97,7 +97,7 @@ public class Road {
 		}
 		
 		this.nodes.add(destLoc);
-		this.remainingTime = this.nodes.size() - 2;
+		this.remainingTime = this.nodes.size() - 1;
 		
 		
 		List<String> test = new ArrayList<String>();

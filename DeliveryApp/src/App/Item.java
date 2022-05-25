@@ -1,5 +1,8 @@
 package App;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
+@JsonIgnoreProperties(value = { "item" })
 public class Item {
 	Customer dest, exp;
 	Road roadPath;
@@ -25,7 +28,7 @@ public class Item {
 		
 		this.packType = packType;
 		this.packWeight = packWeight;
-		this.status = "ToBeConfirmed";
+		this.status = "Validat";
 	}
 	
 	public String getStatus() {

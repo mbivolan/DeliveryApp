@@ -115,6 +115,12 @@ public class CourierFrame extends JFrame {
 					// TODO Auto-generated catch block
 					e1.printStackTrace();
 				}
+				
+				if (item.getRoadPath().getNodes().size() == 1) {
+					item.setStatus("In Asteptare Client");
+					btnUpdate.setVisible(false);
+				}
+				
 				databackend.updateAwb(awb, item);
 			}
 		});
