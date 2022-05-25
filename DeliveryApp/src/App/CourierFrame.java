@@ -101,6 +101,23 @@ public class CourierFrame extends JFrame {
 			}
 		});
 		
+		btnUpdate.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+				String cod_awb=txtCurier.getText();
+				int awb=Integer.parseInt(cod_awb);
+				Item item = null;
+				item=databackend.getItem(awb);
+				try {
+					item.getRoadPath().updateLocation();
+				} catch (Exception e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
+				databackend.updateAwb(awb, item);
+			}
+		});
+		
 		btnCautare.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				

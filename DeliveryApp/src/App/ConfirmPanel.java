@@ -151,7 +151,15 @@ public class ConfirmPanel extends JPanel {
 		lblDestMail.setText(item.getDest().getMail());
 		
 		lblRoad.setText("Ruta: " + path.stream().collect(Collectors.joining(" -> ")));
-		lblTime.setText("Timp: " + item.getRoadPath().getRemainingTime());
+		
+		String timp = "Timp: " + item.getRoadPath().getRemainingTime();
+		if (item.getRoadPath().getRemainingTime() > 1) {
+			timp += " zile";
+		} else {
+			timp += " zi";
+		}
+		
+		lblTime.setText(timp);
 		
 		lblPackType.setText("Tip: " + item.getPackType());
 		lblPackWeight.setText("Greutate: " + item.getPackWeight());

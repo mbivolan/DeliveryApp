@@ -15,7 +15,13 @@ public class Item {
 		this.dest = dest;
 		this.exp = exp;
 		
-		this.roadPath = new Road(expLoc, destLoc);
+		this.roadPath = new Road();
+		try {
+			this.roadPath.computeRoad(expLoc, destLoc);
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		
 		this.packType = packType;
 		this.packWeight = packWeight;
