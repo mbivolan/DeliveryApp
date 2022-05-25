@@ -65,6 +65,13 @@ public class DeliveryApp extends JFrame {
 		});
 		
 		JButton btnAWB = new JButton("AWB");
+		btnAWB.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				
+				new Detalii_colet(backend).setVisible(true);
+				dispose();
+			}
+		});
 		btnAWB.setBounds(355, 204, 89, 23);
 		contentPane.add(btnAWB);
 	}
