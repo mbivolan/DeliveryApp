@@ -121,7 +121,7 @@ public class Detalii_colet extends JFrame {
 				
 				new DeliveryApp().setVisible(true);
 				dispose();
-				//traseul si timpul le ia din alt json?
+				
 				
 			}
 		});

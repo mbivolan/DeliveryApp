@@ -196,11 +196,14 @@ class String_cvv extends Exception{
 
 class Stringcvv
 {
+	static String regex = "^[0-9]{3}$";
+	
 	public static void Verificare(String s)throws String_cvv
 	{
-		int i;
-		i=Integer.parseInt(s);
-		if(i<100 || i>999)
+
+		boolean bool;
+		bool=s.matches(regex);
+		if(bool==false)
 			throw new String_cvv(s);
 	}
 	

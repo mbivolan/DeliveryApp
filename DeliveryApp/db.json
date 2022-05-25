@@ -1,0 +1,249 @@
+{
+  "3424" : {
+    "dest" : {
+      "name" : "Ra Pa",
+      "phone" : "0747425941",
+      "mail" : "nu@da.com"
+    },
+    "exp" : {
+      "name" : "Pa Ra",
+      "phone" : "0747425941",
+      "mail" : "da@nu.com"
+    },
+    "roadPath" : {
+      "nodes" : [ ],
+      "remainingTime" : 0
+    },
+    "packType" : "Normal",
+    "packWeight" : 15,
+    "status" : "ToBeConfirmed"
+  },
+  "9857" : {
+    "dest" : {
+      "name" : "Mirel Cicor",
+      "phone" : "0789456241",
+      "mail" : "mire@nu.com"
+    },
+    "exp" : {
+      "name" : "Maria Stefana",
+      "phone" : "0747425941",
+      "mail" : "mari@da.com"
+    },
+    "roadPath" : {
+      "nodes" : [ ],
+      "remainingTime" : 0
+    },
+    "packType" : "Fragil",
+    "packWeight" : 12,
+    "status" : "ToBeConfirmed"
+  },
+  "1313" : {
+    "dest" : {
+      "name" : "Ffdfd Ffdfd",
+      "phone" : "0722363655",
+      "mail" : "fdfdf@gmail.com"
+    },
+    "exp" : {
+      "name" : "Ffdfd Ffdfd",
+      "phone" : "0722363655",
+      "mail" : "fdfdf@gmail.com"
+    },
+    "roadPath" : {
+      "nodes" : [ "Cluj" ],
+      "remainingTime" : 0
+    },
+    "packType" : "Normal",
+    "packWeight" : 32,
+    "status" : "In Asteptare Client"
+  },
+  "1354" : {
+    "dest" : {
+      "name" : "Mirel Cicor",
+      "phone" : "0789456241",
+      "mail" : "mire@nu.com"
+    },
+    "exp" : {
+      "name" : "Maria Stefana",
+      "phone" : "0747425941",
+      "mail" : "mari@da.com"
+    },
+    "roadPath" : {
+      "nodes" : [ ],
+      "remainingTime" : 0
+    },
+    "packType" : "Fragil",
+    "packWeight" : 12,
+    "status" : "ToBeConfirmed"
+  },
+  "3340" : {
+    "dest" : {
+      "name" : "Mirel Cicor",
+      "phone" : "0789456241",
+      "mail" : "mire@nu.com"
+    },
+    "exp" : {
+      "name" : "Maria Stefana",
+      "phone" : "0747425941",
+      "mail" : "mari@da.com"
+    },
+    "roadPath" : {
+      "nodes" : [ ],
+      "remainingTime" : 0
+    },
+    "packType" : "Fragil",
+    "packWeight" : 12,
+    "status" : "ToBeConfirmed"
+  },
+  "3246" : {
+    "dest" : {
+      "name" : "Mirel Cicor",
+      "phone" : "0789456241",
+      "mail" : "mire@nu.com"
+    },
+    "exp" : {
+      "name" : "Maria Stefana",
+      "phone" : "0747425941",
+      "mail" : "mari@da.com"
+    },
+    "roadPath" : {
+      "nodes" : [ ],
+      "remainingTime" : 0
+    },
+    "packType" : "Fragil",
+    "packWeight" : 12,
+    "status" : "ToBeConfirmed"
+  },
+  "6999" : {
+    "dest" : {
+      "name" : "Gddff Gddff",
+      "phone" : "0722363655",
+      "mail" : "fdfdf@gmail.com"
+    },
+    "exp" : {
+      "name" : "Gddff Gddff",
+      "phone" : "0722363655",
+      "mail" : "fdfdf@gmail.com"
+    },
+    "roadPath" : {
+      "nodes" : [ ],
+      "remainingTime" : 0
+    },
+    "packType" : "Periculos",
+    "packWeight" : 12,
+    "status" : "Validat"
+  },
+  "1563" : {
+    "dest" : {
+      "name" : "Rares Bogdan",
+      "phone" : "da",
+      "mail" : "ana"
+    },
+    "exp" : {
+      "name" : "Pop Gabriel",
+      "phone" : "prezenta ",
+      "mail" : "hopa"
+    },
+    "roadPath" : {
+      "nodes" : [ "adresa1", "e politician" ],
+      "remainingTime" : 60
+    },
+    "packType" : "Normal",
+    "packWeight" : 4,
+    "status" : "ToBeConfirmed"
+  },
+  "2045" : {
+    "dest" : {
+      "name" : "Turlea Madalina",
+      "phone" : "1254",
+      "mail" : "turlica@iahu.ro"
+    },
+    "exp" : {
+      "name" : "Krautner Bogdan",
+      "phone" : "1245",
+      "mail" : "boby@smeker.ro"
+    },
+    "roadPath" : {
+      "nodes" : [ "Str. Petrosaniului", "Str. Vinerii" ],
+      "remainingTime" : 60
+    },
+    "packType" : "Normal",
+    "packWeight" : 12,
+    "status" : "in tranzit retur"
+  },
+  "4413" : {
+    "dest" : {
+      "name" : "Pop Gabriel",
+      "phone" : "a",
+      "mail" : "a"
+    },
+    "exp" : {
+      "name" : "",
+      "phone" : "a",
+      "mail" : "a"
+    },
+    "roadPath" : {
+      "nodes" : [ "a", "a" ],
+      "remainingTime" : 60
+    },
+    "packType" : "Normal",
+    "packWeight" : 12,
+    "status" : "ToBeConfirmed"
+  },
+  "7997" : {
+    "dest" : {
+      "name" : "Ra Pa",
+      "phone" : "0747425941",
+      "mail" : "nu@nu.com"
+    },
+    "exp" : {
+      "name" : "Pa Ra",
+      "phone" : "0747425941",
+      "mail" : "da@da.com"
+    },
+    "roadPath" : {
+      "nodes" : [ ],
+      "remainingTime" : 0
+    },
+    "packType" : "Normal",
+    "packWeight" : 14,
+    "status" : "ToBeConfirmed"
+  },
+  "7230" : {
+    "dest" : {
+      "name" : "Pop Madalin",
+      "phone" : "0741580592",
+      "mail" : "49012@alo.nigga"
+    },
+    "exp" : {
+      "name" : "Ionel Jian",
+      "phone" : "0747425941",
+      "mail" : "hatz@davai.com"
+    },
+    "roadPath" : {
+      "nodes" : [ "Timi", "Arad" ],
+      "remainingTime" : 60
+    },
+    "packType" : "Normal",
+    "packWeight" : -2,
+    "status" : "ToBeConfirmed"
+  },
+  "8255" : {
+    "dest" : {
+      "name" : "Bog K",
+      "phone" : "0258754241",
+      "mail" : "okei@mina.com"
+    },
+    "exp" : {
+      "name" : "Pop G",
+      "phone" : "0747425941",
+      "mail" : "alo@gmail.com"
+    },
+    "roadPath" : {
+      "nodes" : [ "Vaslui", "Pischinti" ],
+      "remainingTime" : 60
+    },
+    "packType" : "Normal",
+    "packWeight" : 10,
+    "status" : "ToBeDelivered"
+  }
+}
