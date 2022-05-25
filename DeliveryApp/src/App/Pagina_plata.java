@@ -16,6 +16,91 @@ import javax.swing.JTextField;
 import javax.swing.JComboBox;
 import javax.swing.DefaultComboBoxModel;
 
+class Integer_pozitiv extends Exception
+{
+	int a;
+	private static final long serialVersionUID = 1L;
+
+	public Integer_pozitiv(int a)
+	{
+		this.a=a;
+	}
+	
+	public String toString()
+	{
+		return "Greutatea trebuie sa fie pozitiva";
+	}
+		
+}
+
+class Integerpozitiv
+{
+	public static void Verificare(int a) throws Integer_pozitiv
+	{
+		if(a<1)
+			throw new Integer_pozitiv(a);
+	}
+}
+
+class String_email extends Exception
+{
+	String s;
+	private static final long serialVersionUID = 1L;
+
+	public String_email(String s)
+	{
+		this.s=s;
+	}
+	
+	public String toString()
+	{
+		return "Adresa de email nu este valida!";
+	}
+}
+
+class Stringemail
+{
+	static String regex="^(.+)@(.+)$";
+	public static void Verificare(String s) throws String_email
+	{
+		
+		 boolean bool;
+			bool=s.matches(regex);
+			if(bool==false)
+				throw new String_email(s);
+			
+	}
+}
+
+class String_telefon extends Exception
+{
+	String s;
+	private static final long serialVersionUID = 1L;
+
+	public String_telefon(String s)
+	{
+		this.s=s;
+	}
+	
+	public String toString()
+	{
+		return "Numar de telefon invalid!";
+	}
+}
+
+class Stringtelefon
+{
+	static String regex="^(\\+4|)?(07[0-8]{1}[0-9]{1}|02[0-9]{2}|03[0-9]{2}){1}?(\\s|\\.|\\-)?([0-9]{3}(\\s|\\.|\\-|)){2}$";
+	public static void Verificare(String s) throws String_telefon
+	{
+		
+		boolean bool;
+		bool=s.matches(regex);
+		if(bool==false)
+			throw new String_telefon(s);
+	}
+}
+
 class String_gol extends Exception {
 	
 	String s;
@@ -28,7 +113,7 @@ class String_gol extends Exception {
 	
 	public String toString()
 	{
-		return "Introduceti numele!";
+		return "Camp gol!";
 	}
 
 }
@@ -151,18 +236,6 @@ public class Pagina_plata extends JFrame {
 		});
 	}
 	
-	public float calcul(int greutate, int categorie)
-	{
-		float suma=1;
-		float cat1=0.1f,cat2=02.f,cat3=0.3f;
-		if(categorie==1)
-			suma=suma*numar_zile*greutate*cat1;
-		if(categorie==2)
-			suma=suma*numar_zile*greutate*cat2;
-		if(categorie==3)
-			suma=suma*numar_zile*greutate*cat3;
-		return suma;
-	}
 
 	/**
 	 * Create the frame.
@@ -259,9 +332,7 @@ public class Pagina_plata extends JFrame {
 		contentPane.add(lblNewLabel);
 		txtCVV.setVisible(false);
 		
-		//pr=calcul(20,2);
 		JOptionPane.showMessageDialog(null, numar_zile);
-		pretul_total=String.valueOf(calcul(20,2));
 		txtCash2.setText(pretul_total);
 
 		btnCash.addActionListener(new ActionListener() {
@@ -310,16 +381,17 @@ public class Pagina_plata extends JFrame {
 				
 				String nume,numar,cvv;
 				String expresie_nume="^([A-Z][a-z]*((\\s)))+[A-Z][a-z]*$";
+				int ok1=0,ok2=0,ok3=0;
 				
 				
 				if(plata_card==true)
 				{
-					//nume
 					try {
 						
 						nume=txtNume.getText();
 						Stringgol.Verificare(nume);
 						Stringnume.Verificare(nume);
+						ok1=1;
 					}
 					catch(String_gol f)
 					{
@@ -329,12 +401,12 @@ public class Pagina_plata extends JFrame {
 					{
 						JOptionPane.showMessageDialog(null, g);
 					}
-					//numar
 					try
 					{
 						numar=txtNumar.getText();
 						Stringgol.Verificare(numar);
 						Stringcard.Verificare(numar);
+						ok2=1;
 					}
 					catch(String_gol h)
 					{
@@ -344,13 +416,13 @@ public class Pagina_plata extends JFrame {
 					{
 						JOptionPane.showMessageDialog(null, i);
 					}
-					//CVV
 					try
 					{
 						cvv=txtCVV.getText();
 						Stringgol.Verificare(cvv);
 						ok=Integer.parseInt(cvv);
 						Stringcvv.Verificare(cvv);
+						ok3=1;
 					}
 					catch(String_gol cvv1)
 					{
@@ -364,8 +436,17 @@ public class Pagina_plata extends JFrame {
 					{
 						JOptionPane.showMessageDialog(null, cvv3);
 					}
+					if(ok1==1 && ok2==1 && ok3==1)
+					{
+						JOptionPane.showMessageDialog(null,"Plata realizata cu succes");
+						dispose();
+					}
 					
-					
+				}
+				else
+				{
+					JOptionPane.showMessageDialog(null,"Plata realizata cu succes");
+					dispose();
 				}
 				
 

@@ -16,9 +16,12 @@ import javax.swing.JSeparator;
 import java.awt.Color;
 import javax.swing.JTextPane;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.SwingConstants;
 import javax.swing.JComboBox;
 import javax.swing.DefaultComboBoxModel;
+
+
 
 @SuppressWarnings({ "unused", "serial" })
 public class GhiseuFrame extends JFrame {
@@ -148,21 +151,71 @@ public class GhiseuFrame extends JFrame {
 		contentPane.add(comPackType);
 		
 		btnNewPackage.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-	        	Customer dest = new Customer(txtDestName.getText(), txtDestPhone.getText(), txtDestMail.getText());
-	        	Customer exp = new Customer(txtExpName.getText(), txtExpPhone.getText(), txtExpMail.getText());
+			public void actionPerformed(ActionEvent e){
+				String destinatar,expeditor,telefon_exp,telefon_dest,adresa_exp,adresa_dest,greutate;
+				int greu;
+			
+				try {
+					destinatar=txtDestName.getText();
+					
+					Stringgol.Verificare(destinatar);
+					Stringnume.Verificare(destinatar);
+					
+					expeditor=txtExpName.getText();
+					
+					Stringgol.Verificare(expeditor);
+					Stringnume.Verificare(expeditor);
+					
+					telefon_exp=txtExpPhone.getText();
+					
+					Stringgol.Verificare(telefon_exp);
+					Stringtelefon.Verificare(telefon_exp);
+					
+					telefon_dest=txtDestPhone.getText();
+					
+					Stringgol.Verificare(telefon_dest);
+					Stringtelefon.Verificare(telefon_dest);
+					
+					adresa_exp=txtExpMail.getText();
+					
+					Stringgol.Verificare(adresa_exp);
+					Stringemail.Verificare(adresa_exp);
+					
+					adresa_dest=txtDestMail.getText();
+					
+					Stringgol.Verificare(adresa_dest);
+					Stringemail.Verificare(adresa_dest);
+					
+					greutate=txtPackWeight.getText();
+					greu=Integer.parseInt(greutate);
+					Integerpozitiv.Verificare(greu);
+							
+					Customer dest = new Customer(txtDestName.getText(), txtDestPhone.getText(), txtDestMail.getText());
+		        	Customer exp = new Customer(txtExpName.getText(), txtExpPhone.getText(), txtExpMail.getText());
 
-	        	int awb = backend.addNewItem(
-	        				new Item(
-	        						exp,
-        							dest,
-        							txtExpAdr.getText(),
-        							txtDestAdr.getText(),
-        							(String)comPackType.getSelectedItem(),
-        							Integer.valueOf(txtPackWeight.getText())
-	        					)
-	        			);
-	        	switchContent(awb);
+		        	int awb = backend.addNewItem(
+		        				new Item(
+		        						exp,
+	        							dest,
+	        							txtExpAdr.getText(),
+	        							txtDestAdr.getText(),
+	        							(String)comPackType.getSelectedItem(),
+	        							Integer.valueOf(txtPackWeight.getText())
+	        							
+		        					)
+		        			);
+		        	switchContent(awb);
+				}
+				catch(String_gol | String_nume | String_telefon | String_email |Integer_pozitiv num ) 
+				{
+					JOptionPane.showMessageDialog(null,num);
+				}
+				catch(NumberFormatException num2)
+				{
+					JOptionPane.showMessageDialog(null,"Greutate invalida!");
+				}
+				
+	        	
 			}
 		});
 	}

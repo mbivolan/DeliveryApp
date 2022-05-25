@@ -23,6 +23,9 @@ public class Pagina_expeditor extends JFrame {
 	private JTextField textField;
 	private long time_expeditor;
 	private DataBackend databackend;
+	public int awb;
+	public static JTextField txtAscuns;
+	private int c;
 
 	/**
 	 * Launch the application.
@@ -66,6 +69,37 @@ public class Pagina_expeditor extends JFrame {
         }
     }).start();
     }
+	
+	public float calcul(int numarzile,int categorie, int greutate)
+	{
+		float suma=1;
+		float cat1=1.1f,cat2=1.2f,cat3=1.3f;
+		if(categorie==1)
+			suma=suma*numarzile*greutate*cat1;
+		if(categorie==2)
+			suma=suma*numarzile*greutate*cat2;
+		if(categorie==3)
+			suma=suma*numarzile*greutate*cat3;
+		if(categorie==4)
+			suma=suma*numarzile*greutate;
+		return suma;
+	}
+	
+	public int categorie(String cat)
+	{
+		int categ=0;
+		if(cat.equals("Fragil"))
+			categ=1;
+		if(cat.equals("Pretios"))
+			categ=2;
+		if(cat.equals("Periculos"))
+			categ=3;
+		if(cat.equals("Normal"))
+			categ=4;
+		
+		return categ;
+			
+	}
 
 	/**
 	 * Create the frame.
@@ -85,6 +119,7 @@ public class Pagina_expeditor extends JFrame {
 		contentPane.add(btnPlataDest);
 		
 		JButton btnRetur = new JButton("Retrurneaza colet");
+		
 		btnRetur.setBounds(21, 66, 143, 23);
 		contentPane.add(btnRetur);
 		
@@ -103,7 +138,13 @@ public class Pagina_expeditor extends JFrame {
 		JLabel lblPlataDest = new JLabel("Numar de zile:");
 		lblPlataDest.setBounds(201, 27, 85, 14);
 		contentPane.add(lblPlataDest);
+		
+		txtAscuns = new JTextField();
+		txtAscuns.setBounds(287, 84, 86, 20);
+		contentPane.add(txtAscuns);
+		txtAscuns.setColumns(10);
 		lblPlataDest.setVisible(false);
+		txtAscuns.setVisible(false);
 		
 		btnSprePlata.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -111,24 +152,26 @@ public class Pagina_expeditor extends JFrame {
 				Pagina_plata plat=new Pagina_plata();
 				int zile;
 				String z;
+				String sir;
+				float sum;
+				int partial;
+				String cod_awb=txtAscuns.getText();
+				int awb=Integer.parseInt(cod_awb);
 				try {
 					z=textField.getText();
 					zile=Integer.parseInt(z);
-					dest.numar_secunde=zile;
-					plat.numar_zile=zile;
-					plat.calcul(20,2);
+					Item item=databackend.getItem(awb);
+					sum=calcul(zile,categorie(item.getPackType()),item.getPackWeight());
 					new Pagina_plata().setVisible(true);
-					//Pagina_plata.txtCash2.setText(textField.getText());
+					sir=String.valueOf(sum);
+					Pagina_plata.txtCash2.setText(sir);
+					
 					dispose();
 				}
 				catch(NumberFormatException p)
 				{
 					JOptionPane.showMessageDialog(null, "Trebuie introdus un numar de zile");
 				}
-				
-				//lblCash2.setText(textField.getText());
-				
-				
 			}
 		});
 		
@@ -137,6 +180,19 @@ public class Pagina_expeditor extends JFrame {
 				textField.setVisible(true);
 				lblPlataDest.setVisible(true);
 				btnSprePlata.setVisible(true);
+			}
+		});
+		
+		btnRetur.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				String livrare="in tranzit retur";
+				String cod_awb=txtAscuns.getText();
+				int awb=Integer.parseInt(cod_awb);
+				Item item=databackend.getItem(awb);
+				item.setStatus(livrare);
+				databackend.updateAwb(awb,item);
+				dispose();
+				
 			}
 		});
 	}

@@ -24,7 +24,7 @@ public class Pagina_destinatar extends JFrame {
 	 */
 	private static final long serialVersionUID = 1L;
 	private JPanel contentPane;
-	public JTextField textField;
+	public static JTextField textField;
 	public static JTextField textField_1;
 	public boolean adevar;
 	private long time;
@@ -60,19 +60,16 @@ public class Pagina_destinatar extends JFrame {
     }, eventMask);
 
     time = System.currentTimeMillis();
-   System.out.println(numar_secunde);
     new Thread(new Runnable() {
     	
         @Override
         public void run() {
             while (true) {
-                if (System.currentTimeMillis() - time > (numar_secunde*1000)) {
-                	System.out.println("in if"+numar_secunde);
+                if (System.currentTimeMillis() - time > 5000) {
                 	//new CourierFrame(new DataBackend()).setVisible(true);
                 	dispose();
                     break;
                 }
-                //System.out.println(1);
             }
         }
         
@@ -131,7 +128,6 @@ public class Pagina_destinatar extends JFrame {
 					String livrat="livrat";
 					int awb=Integer.parseInt(cod_awb);
 					Item item=databackend.getItem(awb);
-					System.out.println(item.getDest().getName());
 					item.setStatus(livrat);
 					databackend.updateAwb(awb,item);
 					dispose();
@@ -141,7 +137,22 @@ public class Pagina_destinatar extends JFrame {
 		});
 		rdbtnDa.setBounds(34, 209, 109, 23);
 		contentPane.add(rdbtnDa);
+		
+		JRadioButton rdbtnNU = new JRadioButton("Nu");
+		rdbtnNU.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				String cod_awb=textField_1.getText();
+				String livrare="in tranzit retur";
+				int awb=Integer.parseInt(cod_awb);
+				Item item=databackend.getItem(awb);
+				item.setStatus(livrare);
+				databackend.updateAwb(awb,item);
+				dispose();
+				
+			}
+		});
+		rdbtnNU.setBounds(34, 247, 109, 23);
+		contentPane.add(rdbtnNU);
+		timp();
 	}
-
-	
 }

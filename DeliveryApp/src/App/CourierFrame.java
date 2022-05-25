@@ -88,6 +88,7 @@ public class CourierFrame extends JFrame {
 		JButton btnUpdate = new JButton("Update Traseu");
 		btnUpdate.setBounds(215, 160, 121, 23);
 		contentPane.add(btnUpdate);
+		btnUpdate.setVisible(false);
 		
 		JList list = new JList();
 		list.setBounds(104, 176, 1, 1);
@@ -122,20 +123,28 @@ public class CourierFrame extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 				
 				String cod_awb=txtCurier.getText();
+				try {
 				int awb=Integer.parseInt(cod_awb);
+				
 				Item item = null;
 				try {
 					item=databackend.getItem(awb);
-				} catch (NullPointerException nul) {}
-				
+				} catch (NullPointerException nul) {
+					
+				}
 				if (item == null) {
 					JOptionPane.showMessageDialog(null, "AWB-ul nu a fost gasit");
 				} else {
 					btnDestinatar.setVisible(true);
 					btnExpeditor.setVisible(true);
+					btnUpdate.setVisible(true);
 				}
-				//System.out.println(item.getExp().getName());
 				
+				}
+				catch(NumberFormatException exp)
+				{
+					JOptionPane.showMessageDialog(null,"Introduceti un AWB valid");
+				}
 				
 			}
 		});
@@ -143,15 +152,22 @@ public class CourierFrame extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 				Pagina_destinatar d = new Pagina_destinatar(new DataBackend());
 				new Pagina_destinatar(new DataBackend()).setVisible(true);
-				d.numar_secunde=3;
-				d.timp();
+				String s1,s2;
+				String cod_awb=txtCurier.getText();
+				int awb=Integer.parseInt(cod_awb);
+				Item item=databackend.getItem(awb);
+				s1=item.getExp().getName();
+				Pagina_destinatar.textField.setText(s1);
 				Pagina_destinatar.textField_1.setText(txtCurier.getText());
 			}
 		});
 		
 		btnExpeditor.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				
 				new Pagina_expeditor(new DataBackend()).setVisible(true);
+				Pagina_expeditor.txtAscuns.setText(txtCurier.getText());
+				
 				
 			}
 		});
