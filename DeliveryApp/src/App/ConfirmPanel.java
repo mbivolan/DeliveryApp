@@ -122,10 +122,21 @@ public class ConfirmPanel extends JPanel {
 		add(btnConfirmData);
 		btnConfirmData.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				/*
 				var newPanel = new PayPanel(frame, backend, awb);
 				frame.setContentPane(newPanel);
 				frame.repaint();
 				frame.setVisible(true);
+				*/
+				
+				Item item = backend.getItem(awb);
+				int sum = item.getRoadPath().getRemainingTime() * 20;
+				
+				new Pagina_plata().setVisible(true);
+				String sir = String.valueOf(sum);
+				Pagina_plata.txtCash2.setText(sir);
+				
+				frame.dispose();
 			}
 		});
 		
@@ -163,7 +174,14 @@ public class ConfirmPanel extends JPanel {
 		
 		lblPackType.setText("Tip: " + item.getPackType());
 		lblPackWeight.setText("Greutate: " + item.getPackWeight());
+		
+		JLabel lblPrice = new JLabel("New label");
+		lblPrice.setHorizontalAlignment(SwingConstants.CENTER);
+		lblPrice.setBounds(10, 415, 731, 13);
+		add(lblPrice);
+		
+		lblPrice.setText("Pret: " + item.getRoadPath().getRemainingTime() * 20 + " Lei");
+		
 
 	}
-
 }

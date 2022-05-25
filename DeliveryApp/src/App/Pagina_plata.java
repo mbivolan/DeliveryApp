@@ -220,6 +220,8 @@ public class Pagina_plata extends JFrame {
 	private String pretul_total;
 	private float pr;
 	
+	
+	
 	/**
 	 * Launch the application.
 	 */
@@ -332,7 +334,7 @@ public class Pagina_plata extends JFrame {
 		contentPane.add(lblNewLabel);
 		txtCVV.setVisible(false);
 		
-		JOptionPane.showMessageDialog(null, numar_zile);
+		//JOptionPane.showMessageDialog(null, numar_zile);
 		txtCash2.setText(pretul_total);
 
 		btnCash.addActionListener(new ActionListener() {
@@ -446,7 +448,13 @@ public class Pagina_plata extends JFrame {
 				else
 				{
 					JOptionPane.showMessageDialog(null,"Plata realizata cu succes");
+					
+					new DeliveryApp().setVisible(true);
+					
+					
 					dispose();
+					
+					
 				}
 				
 

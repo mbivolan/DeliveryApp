@@ -148,8 +148,6 @@ public class Pagina_expeditor extends JFrame {
 		
 		btnSprePlata.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				Pagina_destinatar dest= new Pagina_destinatar(new DataBackend());
-				Pagina_plata plat=new Pagina_plata();
 				int zile;
 				String z;
 				String sir;
